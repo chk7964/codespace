@@ -1,0 +1,27 @@
+{
+	"name": "Node.js & TypeScript with Redis",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "node",
+	"workspaceFolder": "/app",
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "pnpm install",
+	"postCreateCommand": "apt-get update && apt-get install -y qpdf && pnpm install",
+	"postAttachCommand": "pnpm dev",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"DavidAnson.vscode-markdownlint",
+				"ms-vscode-remote.remote-containers"
+			]
+		}
+	},
+	"portsAttributes": {
+		"3000": {
+			"label": "Application",
+			"onAutoForward": "openPreview"
+		}
+	},
+	"forwardPorts": [3000]
+}
