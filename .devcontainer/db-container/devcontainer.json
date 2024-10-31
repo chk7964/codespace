@@ -1,6 +1,6 @@
 {
   "name": "DB Container",
-  "dockerComposeFile": ["../../docker-compose.yml"],
+  "dockerComposeFile": ["../docker-compose.yml"],
   "service": "db",
   "shutdownAction": "stopCompose",
   "workspaceFolder": "/workspace"
