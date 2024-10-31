@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  nextjs:
+    image: "node:18-bullseye-slim"
+    container_name: "nextjs_dev"
+    volumes:
+      - ..:/workspace:cached
+    working_dir: /workspace
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    ports:
+      - "3000:3000"
+    command: "npm run dev"
+
+  redis:
+    image: "redis:alpine"
+    container_name: "redis_dev"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+volumes:
+  redisdata:
