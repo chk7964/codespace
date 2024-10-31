@@ -3,10 +3,13 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "node",
 	"workspaceFolder": "/app",
+	"features": {
+        "ghcr.io/devcontainers/features/redis:1": {}
+    },
 	"waitFor": "onCreateCommand",
-	"updateContentCommand": "pnpm install",
-	"postCreateCommand": "apt-get update && apt-get install -y qpdf && pnpm install",
-	"postAttachCommand": "pnpm dev",
+	"updateContentCommand": "sudo pt-get update && sudo apt-get install -y qpdf",
+	// "postCreateCommand": "pnpm install",
+	// "postAttachCommand": "pnpm dev",
 	"customizations": {
 		"vscode": {
 			"extensions": [
